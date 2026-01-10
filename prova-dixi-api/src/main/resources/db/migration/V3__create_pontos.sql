@@ -1,0 +1,6 @@
+CREATE TABLE pontos (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    data DATE NOT NULL,
+    hora TIME NOT NULL,
+    PRIMARY KEY (id)
+);
