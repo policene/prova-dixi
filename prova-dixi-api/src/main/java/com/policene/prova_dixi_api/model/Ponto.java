@@ -5,7 +5,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -14,6 +16,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
 public class Ponto {
 
     @Id
@@ -26,8 +29,28 @@ public class Ponto {
     @NotNull
     private LocalDateTime hora;
 
-    private String caminhoFoto;
-    private Double latitude;
-    private Double longitude;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public LocalDateTime getHora() {
+        return hora;
+    }
+
+    public void setHora(LocalDateTime hora) {
+        this.hora = hora;
+    }
 }
