@@ -5,13 +5,14 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public record PontoResponseDTO(
 
         @NotNull
         LocalDate data,
         @NotNull
-        LocalDateTime hora,
+        LocalTime hora,
         @NotNull
         Boolean considerada,
         @Nullable

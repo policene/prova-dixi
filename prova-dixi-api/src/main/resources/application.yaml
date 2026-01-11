@@ -1,12 +1,17 @@
 spring:
   application:
     name: prova-dixi-api
-  datasource:
-    url: "jdbc:h2:mem:testdb"
-    driverClassName: "org.h2.Driver"
-    username: sa
-    password: password
   jpa:
-    database-plaform: "org.hibernate.dialect.H2Dialect"
-  h2:
-    console-enabled: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: "jdbc:mysql://localhost:3306/prova_dixi"
+    username: user
+    password: pass
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+  redis:
+    host: localhost
+    port: 6379
