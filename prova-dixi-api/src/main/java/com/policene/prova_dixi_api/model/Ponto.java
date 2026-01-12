@@ -7,9 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "pontos")
@@ -27,7 +26,7 @@ public class Ponto {
     private LocalDate data;
 
     @NotNull
-    private LocalDateTime hora;
+    private LocalTime hora;
 
 
     public Long getId() {
@@ -46,11 +45,11 @@ public class Ponto {
         this.data = data;
     }
 
-    public LocalDateTime getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(LocalDateTime hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 }

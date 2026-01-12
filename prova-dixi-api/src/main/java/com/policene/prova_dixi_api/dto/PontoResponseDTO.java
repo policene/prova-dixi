@@ -1,4 +1,4 @@
-package com.policene.prova_dixi_api.model.dto;
+package com.policene.prova_dixi_api.dto;
 
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;

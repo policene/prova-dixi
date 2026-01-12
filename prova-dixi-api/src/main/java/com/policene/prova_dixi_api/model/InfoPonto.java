@@ -34,7 +34,7 @@ public class InfoPonto {
     private String motivo;
 
     @NotNull
-    private boolean temFoto;
+    private boolean possuiFoto;
 
     private String urlFoto;
 
@@ -85,12 +85,12 @@ public class InfoPonto {
         this.motivo = motivo;
     }
 
-    public boolean isTemFoto() {
-        return temFoto;
+    public boolean isPossuiFoto() {
+        return possuiFoto;
     }
 
-    public void setTemFoto(boolean temFoto) {
-        this.temFoto = temFoto;
+    public void setPossuiFoto(boolean possuiFoto) {
+        this.possuiFoto = possuiFoto;
     }
 
     public String getUrlFoto() {
