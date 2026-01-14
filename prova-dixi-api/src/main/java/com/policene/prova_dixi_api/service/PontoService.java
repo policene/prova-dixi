@@ -27,13 +27,11 @@ public class PontoService {
     private final InfoPontoRepository infoPontoRepository;
 
     private final FuncionarioService funcionarioService;
-    private final FotoService fotoService;
 
-    public PontoService(PontoRepository pontoRepository, InfoPontoRepository infoPontoRepository, FotoService fotoService, RedisTemplate<String, Object> redis, FuncionarioService funcionarioService) {
+    public PontoService(PontoRepository pontoRepository, InfoPontoRepository infoPontoRepository, RedisTemplate<String, Object> redis, FuncionarioService funcionarioService) {
         this.pontoRepository = pontoRepository;
         this.infoPontoRepository = infoPontoRepository;
         this.funcionarioService = funcionarioService;
-        this.fotoService = fotoService;
         this.redis = redis;
     }
 
@@ -55,7 +53,7 @@ public class PontoService {
         }
     }
 
-    public PontoResponseDTO baterPonto (PontoRequestDTO request, MultipartFile file) {
+    public PontoResponseDTO baterPonto (PontoRequestDTO request) {
 
         String chave = obterChave(request.idFuncionario());
 
@@ -69,14 +67,13 @@ public class PontoService {
             motivo = "Marcação desconsiderada por proximidade.";
         }
 
-        boolean possuiFoto = (!file.isEmpty());
+        boolean possuiFoto = (!request.foto().isEmpty());
         String urlFoto = "";
 
         boolean possuiLocalizacao = (request.longitude() != null && request.latitude() != null);
 
-
         if (possuiFoto) {
-            urlFoto = salvarFoto(file);
+            urlFoto = salvarFoto(request.foto());
         }
 
         // TODO - Lógica de validação do ponto...
@@ -104,8 +101,8 @@ public class PontoService {
         );
     }
 
-    public String salvarFoto (MultipartFile file) {
-        return fotoService.salvarFoto(file);
+    public String salvarFoto (String file) {
+        return "Teste";
     }
 
 }

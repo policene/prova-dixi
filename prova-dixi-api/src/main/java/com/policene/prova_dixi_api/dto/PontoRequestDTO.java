@@ -9,6 +9,8 @@ public record PontoRequestDTO(
         @Nullable
         Double latitude,
         @Nullable
-        Double longitude
+        Double longitude,
+        @Nullable
+        String foto
 ) {
 }

@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/ponto")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class PontoController {
 
     private final PontoService pontoService;
@@ -19,11 +20,9 @@ public class PontoController {
         this.pontoService = pontoService;
     }
 
-    @PostMapping(value = "/baterPonto", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<PontoResponseDTO> baterPonto (
-            @RequestPart("ponto") PontoRequestDTO ponto,
-            @RequestPart(value = "foto", required = false) MultipartFile foto ) {
-        return new ResponseEntity<>(pontoService.baterPonto(ponto, foto), HttpStatus.CREATED);
+    @PostMapping(value = "/baterPonto")
+    public ResponseEntity<PontoResponseDTO> baterPonto (@RequestBody PontoRequestDTO ponto) {
+        return new ResponseEntity<>(pontoService.baterPonto(ponto), HttpStatus.CREATED);
     }
 
 }
