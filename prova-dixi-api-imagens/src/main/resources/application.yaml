@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: prova-dixi-api-imagens
+
+server:
+  port: 8081
